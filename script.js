@@ -1,5 +1,5 @@
-let main = document.createElement('div');
-document.appendChild(main);
+let core = document.createElement('div');
+body.appendChild(core);
 
 let display = document.createElement('div')
 main.appendChild(display);
@@ -59,6 +59,7 @@ buttonGrid.appendChild(buttonFive)
 
 let buttonSix = document.createElement('button')
 buttonSix.value = '6'
+buttonSix.classList.add('operand')
 buttonGrid.appendChild(buttonSix)
 
 let buttonMinus = document.createElement('button')
@@ -90,3 +91,46 @@ let buttonZero = document.createElement('button')
 buttonZero.value = '0'
 buttonZero.classList.add('operand')
 buttonGrid.appendChild(buttonZero)
+
+ function add(a, b) {
+    return a + b;
+};
+
+function sub(a, b) {
+    return a - b;
+};
+
+function mult(a, b) {
+    return a * b;
+};
+
+function div(a, b) {
+    return a / b;
+};
+
+let operandFirst = '1';
+
+let operatorFirst = '+';
+
+let operandSecond = '2';
+
+let result 
+
+function operate() {
+    let a = operandFirst;
+    let b = operandSecond;
+    let c = operatorFirst;
+
+    if (c == '+') {
+        return result = add(a, b)
+    }
+    else if (c == '-') {
+        return result = sub(a, b)
+    }
+    else if (c == '*') {
+        return result = mult(a, b)
+    }
+    else return result = div(a, b)
+};
+
+console.log(operate(operandFirst, operandSecond))
