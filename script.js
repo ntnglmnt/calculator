@@ -1,5 +1,5 @@
-let core = document.createElement('div');
-body.appendChild(core);
+let main = document.createElement('div');
+document.body.appendChild(main);
 
 let display = document.createElement('div')
 main.appendChild(display);
@@ -93,44 +93,53 @@ buttonZero.classList.add('operand')
 buttonGrid.appendChild(buttonZero)
 
  function add(a, b) {
-    return a + b;
+    let first = Number(a);
+    let second = Number(b);
+    return first + second;
 };
 
 function sub(a, b) {
-    return a - b;
+    let first = Number(a);
+    let second = Number(b);
+    return first - second;
 };
 
 function mult(a, b) {
-    return a * b;
+    let first = Number(a);
+    let second = Number(b);
+    return first * second;
 };
 
 function div(a, b) {
-    return a / b;
+    let first = Number(a);
+    let second = Number(b);
+    return first / second;
 };
 
 let operandFirst = '1';
 
-let operatorFirst = '+';
+let operator = '-';
 
 let operandSecond = '2';
 
-let result 
+let result = 0;
 
 function operate() {
-    let a = operandFirst;
-    let b = operandSecond;
-    let c = operatorFirst;
+    let slotOne = operandFirst;
+    let slotTwo = operandSecond;
+    let slotThree = operator;
 
-    if (c == '+') {
-        return result = add(a, b)
+    if (slotThree === '+') {
+        return result = add(slotOne, slotTwo)
+        console.log(slotOne, slotTwo, slotThree)
     }
-    else if (c == '-') {
-        return result = sub(a, b)
+    else if (slotThree == '-') {
+        return result = sub(slotOne, slotTwo)
     }
-    else if (c == '*') {
-        return result = mult(a, b)
+    else if (slotThree == '*') {
+        return result = mult(slotOne, slotTwo)
     }
-    else return result = div(a, b)
+    else return result = div(slotOne, slotTwo)
 };
 
-console.log(operate(operandFirst, operandSecond))
+console.log(operate())
