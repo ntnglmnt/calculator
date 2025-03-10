@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+.main {
+    width: 320px;
+    height: 480px;
+    border: 6px solid rgb(58, 57, 58);
+    background-color: rgba(34, 92, 92, 0.332);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+
+}
+
+.display {
+    margin-top: 4px;
+    height: 64px;
+    width: 280px;
+    gap: 16px;
+    background-color: rgb(235, 225, 130);
+    border: 4px thick black;
+}
+
+.grid{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0px;
+    justify-content: center;
+
+}
+
+button{
+    width: 72px;
+    height: 66px;
+}
+
+.zerocase{
+    height: 66px;
+    width: 220px;
+}
+
+.operand{
+    background-color: azure;
+}
+
+.operator{
+    background-color: antiquewhite;
+}
