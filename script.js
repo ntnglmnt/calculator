@@ -1,98 +1,133 @@
+let calculation = [];
+let operator 
+
+
 let main = document.createElement('div');
+main.classList.add('main')
 document.body.appendChild(main);
 
 let display = document.createElement('div')
+display.classList.add('display')
 main.appendChild(display);
 
 let buttonGrid = document.createElement('div')
+buttonGrid.classList.add('grid')
 main.appendChild(buttonGrid);
 
 let buttonAC = document.createElement('button')
-buttonGrid.value = 'AC'
+buttonAC.textContent = 'AC'
 buttonAC.classList.add('operator')
 buttonGrid.appendChild(buttonAC)
 
 let buttonSign = document.createElement('button')
-buttonSign.value = ''
+buttonSign.textContent = '+/-'
 buttonSign.classList.add('operator')
 buttonGrid.appendChild(buttonSign)
 
 let buttonPercent = document.createElement('button')
-buttonPercent.value = '%'
+buttonPercent.textContent = '%'
 buttonPercent.classList.add('operator')
 buttonGrid.appendChild(buttonPercent)
 
 let buttonDivision = document.createElement('button')
-buttonDivision.value = '/'
+buttonDivision.textContent = '/'
 buttonDivision.classList.add('operator')
 buttonGrid.appendChild(buttonDivision)
 
 let buttonSeven = document.createElement('button')
-buttonSeven.value = '7'
+buttonSeven.textContent = '7'
+buttonSeven.addEventListener('click', () =>
+    calculation.push('7'), console.log(calculation))
 buttonSeven.classList.add('operand')
+
 buttonGrid.appendChild(buttonSeven)
 
 let buttonEight = document.createElement('button')
-buttonEight.value = '8'
+buttonEight.textContent = '8'
+buttonEight.addEventListener('click', () =>
+    calculation.push('8'))
 buttonEight.classList.add('operand')
 buttonGrid.appendChild(buttonEight)
 
 let buttonNine = document.createElement('button')
-buttonNine.value = '9'
+buttonNine.textContent = '9'
+buttonNine.addEventListener('click', () =>
+    calculation.push('9'))
 buttonNine.classList.add('operand')
 buttonGrid.appendChild(buttonNine)
 
 let buttonMultiply = document.createElement('button')
-buttonMultiply.value = '*'
 buttonMultiply.classList.add('operator')
+buttonMultiply.textContent = '*'
+buttonMultiply.addEventListener('click', populate)
 buttonGrid.appendChild(buttonMultiply)
 
 let buttonFour = document.createElement('button')
-buttonFour.value = '4'
+buttonFour.textContent = '4'
+buttonFour.addEventListener('click', () =>
+    calculation.push('4'))
 buttonFour.classList.add('operand')
 buttonGrid.appendChild(buttonFour)
 
 let buttonFive = document.createElement('button')
-buttonFive.value = '5'
+buttonFive.textContent = '5'
+buttonFive.addEventListener('click', () =>
+    calculation.push('5'))
 buttonFive.classList.add('operand')
 buttonGrid.appendChild(buttonFive)
 
 let buttonSix = document.createElement('button')
-buttonSix.value = '6'
+buttonSix.textContent = '6'
+buttonSix.addEventListener('click', () =>
+    calculation.push('6'))
 buttonSix.classList.add('operand')
 buttonGrid.appendChild(buttonSix)
 
 let buttonMinus = document.createElement('button')
-buttonMinus.value = '-'
+buttonMinus.textContent = '-'
 buttonMinus.classList.add('operator')
+buttonMinus.addEventListener('click', populate)
 buttonGrid.appendChild(buttonMinus)
 
 let buttonOne = document.createElement('button')
-buttonOne.value = '1'
+buttonOne.textContent = '1'
+buttonOne.addEventListener('click', () =>
+    calculation.push('1'))
 buttonOne.classList.add('operand')
 buttonGrid.appendChild(buttonOne)
 
 let buttonTwo = document.createElement('button')
-buttonTwo.value = '2'
+buttonTwo.textContent = '2'
+buttonTwo.addEventListener('click', () =>
+    calculation.push('2'))
 buttonTwo.classList.add('operand')
 buttonGrid.appendChild(buttonTwo)
 
 let buttonThree = document.createElement('button')
-buttonThree.value = '3'
+buttonThree.textContent = '3'
+buttonThree.addEventListener('click', () =>
+    calculation.push('3'))
 buttonThree.classList.add('operand')
 buttonGrid.appendChild(buttonThree)
 
 let buttonPlus = document.createElement('button')
-buttonPlus.value = '+'
+buttonPlus.textContent = '+'
+buttonPlus.addEventListener('click', populate)
 buttonPlus.classList.add('operator')
 buttonGrid.appendChild(buttonPlus)
 
 let buttonZero = document.createElement('button')
-buttonZero.value = '0'
-buttonZero.classList.add('operand')
+buttonZero.textContent = '0'
+buttonZero.addEventListener('click', populate)
+buttonZero.classList.add('zerocase')
 buttonGrid.appendChild(buttonZero)
 
- function add(a, b) {
+let buttonEqual = document.createElement('button')
+buttonEqual.textContent = '='
+buttonEqual.classList.add('operator')
+buttonGrid.appendChild(buttonEqual)
+
+function add(a, b) {
     let first = Number(a);
     let second = Number(b);
     return first + second;
@@ -116,30 +151,18 @@ function div(a, b) {
     return first / second;
 };
 
-let operandFirst = '1';
-
-let operator = '-';
-
-let operandSecond = '2';
-
-let result = 0;
+function populate() {
+    a = this.textContent
+    calculation.push(a)
+    if(this.classname === operator) {
+        operator = this.textContent
+    } console.log(calculation, operator)
+}
 
 function operate() {
-    let slotOne = operandFirst;
-    let slotTwo = operandSecond;
-    let slotThree = operator;
+    
 
-    if (slotThree === '+') {
-        return result = add(slotOne, slotTwo)
-        console.log(slotOne, slotTwo, slotThree)
-    }
-    else if (slotThree == '-') {
-        return result = sub(slotOne, slotTwo)
-    }
-    else if (slotThree == '*') {
-        return result = mult(slotOne, slotTwo)
-    }
-    else return result = div(slotOne, slotTwo)
+    calculation.map()
 };
 
-console.log(operate())
+console.log(operator)
