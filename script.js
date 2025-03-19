@@ -1,6 +1,30 @@
-let calculation = [];
-let operator 
+let firstOperand = '';
+let operator = null;
+let secondOperand = '';
 
+function populateOperator(e) {
+    
+    if(e.target.classList.contains('operator')) {
+        operator = e.target.textContent
+        console.log(operator)
+    }
+}
+
+function populateOperand (e) {
+     if(operator === null) {
+        
+        a = e.target.textContent
+        firstOperand += a
+        display.textContent = firstOperand
+        console.log(firstOperand)
+    }
+    else if(operator === '-', '+', '*', '/') {
+        b = e.target.textContent
+        secondOperand += b
+        display.textContent = secondOperand
+        console.log(secondOperand)
+    }
+}
 
 let main = document.createElement('div');
 main.classList.add('main')
@@ -17,201 +41,146 @@ main.appendChild(buttonGrid);
 let buttonAC = document.createElement('button')
 buttonAC.textContent = 'AC'
 buttonAC.classList.add('operator')
-buttonAC.addEventListener('click', populate)
+buttonAC.addEventListener('click', () => {
+    firstOperand = ''
+    secondOperand = ''
+    operator = ''
+    display.textContent = ''
+})
 buttonGrid.appendChild(buttonAC)
 
 let buttonSign = document.createElement('button')
 buttonSign.textContent = '+/-'
 buttonSign.classList.add('operator')
-buttonSign.addEventListener('click', populate)
+buttonSign.addEventListener('click', populateOperator)
 buttonGrid.appendChild(buttonSign)
 
 let buttonPercent = document.createElement('button')
 buttonPercent.textContent = '%'
 buttonPercent.classList.add('operator')
-buttonPercent.addEventListener('click', populate)
+buttonPercent.addEventListener('click', populateOperator)
 buttonGrid.appendChild(buttonPercent)
 
 let buttonDivision = document.createElement('button')
 buttonDivision.textContent = '/'
 buttonDivision.classList.add('operator')
-buttonDivision.addEventListener('click', populate)
+buttonDivision.addEventListener('click', populateOperator)
 buttonGrid.appendChild(buttonDivision)
 
 let buttonSeven = document.createElement('button')
 buttonSeven.textContent = '7'
-buttonSeven.addEventListener('click', populate)
+buttonSeven.addEventListener('click', populateOperand)
 buttonSeven.classList.add('operand')
 
 buttonGrid.appendChild(buttonSeven)
 
 let buttonEight = document.createElement('button')
 buttonEight.textContent = '8'
-buttonEight.addEventListener('click', populate)
+buttonEight.addEventListener('click', populateOperand)
 buttonEight.classList.add('operand')
 buttonGrid.appendChild(buttonEight)
 
 let buttonNine = document.createElement('button')
 buttonNine.textContent = '9'
-buttonNine.addEventListener('click', populate)
+buttonNine.addEventListener('click', populateOperand)
 buttonNine.classList.add('operand')
 buttonGrid.appendChild(buttonNine)
 
 let buttonMultiply = document.createElement('button')
 buttonMultiply.classList.add('operator')
 buttonMultiply.textContent = '*'
-buttonMultiply.addEventListener('click', populate)
+buttonMultiply.addEventListener('click', populateOperator)
 buttonGrid.appendChild(buttonMultiply)
 
 let buttonFour = document.createElement('button')
 buttonFour.textContent = '4'
-buttonFour.addEventListener('click', populate)
+buttonFour.addEventListener('click', populateOperand)
 buttonFour.classList.add('operand')
 buttonGrid.appendChild(buttonFour)
 
 let buttonFive = document.createElement('button')
 buttonFive.textContent = '5'
-buttonFive.addEventListener('click', populate)
+buttonFive.addEventListener('click', populateOperand)
 buttonFive.classList.add('operand')
 buttonGrid.appendChild(buttonFive)
 
 let buttonSix = document.createElement('button')
 buttonSix.textContent = '6'
-buttonSix.addEventListener('click', populate)
+buttonSix.addEventListener('click', populateOperand)
 buttonSix.classList.add('operand')
 buttonGrid.appendChild(buttonSix)
 
 let buttonMinus = document.createElement('button')
 buttonMinus.textContent = '-'
 buttonMinus.classList.add('operator')
-buttonMinus.addEventListener('click', populate)
+buttonMinus.addEventListener('click', populateOperator)
 buttonGrid.appendChild(buttonMinus)
 
 let buttonOne = document.createElement('button')
 buttonOne.textContent = '1'
-buttonOne.addEventListener('click', populate)
+buttonOne.addEventListener('click', populateOperand)
 buttonOne.classList.add('operand')
 buttonGrid.appendChild(buttonOne)
 
 let buttonTwo = document.createElement('button')
 buttonTwo.textContent = '2'
-buttonTwo.addEventListener('click', populate)
+buttonTwo.addEventListener('click', populateOperand)
 buttonTwo.classList.add('operand')
 buttonGrid.appendChild(buttonTwo)
 
 let buttonThree = document.createElement('button')
 buttonThree.textContent = '3'
-buttonThree.addEventListener('click', populate)
+buttonThree.addEventListener('click', populateOperand)
 buttonThree.classList.add('operand')
 buttonGrid.appendChild(buttonThree)
 
 let buttonPlus = document.createElement('button')
 buttonPlus.textContent = '+'
-buttonPlus.addEventListener('click', populate)
+buttonPlus.addEventListener('click', populateOperator)
 buttonPlus.classList.add('operator')
 buttonGrid.appendChild(buttonPlus)
 
 let buttonZero = document.createElement('button')
 buttonZero.textContent = '0'
-buttonZero.addEventListener('click', populate)
+buttonZero.addEventListener('click', populateOperand)
 buttonZero.classList.add('zerocase')
 buttonGrid.appendChild(buttonZero)
 
 let buttonEqual = document.createElement('button')
 buttonEqual.textContent = '='
-buttonEqual.classList.add('operator')
-addEventListener('click', () => {
-    if (operator === '-') {
-        partOne = calculation.slice(0,operatorPosition);
-        partTwo = calculation.slice(operatorPosition+1);
-        partOneToString = partOne.join('').toString();
-        partTwoToString = partTwo.join('').toString();
-        let result = sub(Number(partOneToString), Number(partTwoToString))
-        console.log(result);
+buttonEqual.classList.add('GAMIESAI')
+buttonEqual.addEventListener('click', () => {
+    let result;
+
+    if (operator === '+') {
+        result = (Number(firstOperand) + Number(secondOperand))
+        console.log(result)
+        firstOperand = result
+        secondOperand = ''
+        operator = ''
     }
-    else if (operator === '+') {
-        partOne = calculation.clise(0, operatorPosition);
-        partTwo = calculation.slice(operatorPosition+1);
-        partOneToString = partOne.join('').toString();
-        partTwoToString = partTwo.join('').toString();
-        let result = add(Number(partOneToString), Number(partTwoToString))
-        console.log(result);
+    else if (operator === '-') {
+        result = (Number(firstOperand) - Number(secondOperand))
+        console.log(result)
+        firstOperand = result
+        secondOperand = ''
+        operator = ''
     }
     else if (operator === '*') {
-        partOne = calculation.clise(0, operatorPosition);
-        partTwo = calculation.slice(operatorPosition+1);
-        partOneToString = partOne.join('').toString();
-        partTwoToString = partTwo.join('').toString();
-        let result = mult(Number(partOneToString), Number(partTwoToString))
-        console.log(result);
+        result = (Number(firstOperand) * Number(secondOperand))
+        console.log(result)
+        firstOperand = result
+        secondOperand = ''
+        operator = ''
     }
-    else {
-        partOne = calculation.clise(0, operatorPosition);
-        partTwo = calculation.slice(operatorPosition+1);
-        partOneToString = partOne.join('').toString();
-        partTwoToString = partTwo.join('').toString();
-        let result = div(Number(partOneToString), Number(partTwoToString))
-        console.log(result);
+    else if (operator === '/') {
+        result = (Number(firstOperand) / Number(secondOperand))
+        console.log(result)
+        firstOperand = result
+        secondOperand = ''
+        operator = ''
     }
-}
-)
-buttonGrid.appendChild(buttonEqual)
-
-function add(a, b) {
-    let first = a;
-    let second = b;
-    return first + second;
-};
-
-function sub(a, b) {
-    let first = a;
-    let second = b;
-    return first - second;
-};
-
-function mult(a, b) {
-    let first = a;
-    let second = b;
-    return first * second;
-};
-
-function div(a, b) {
-    let first = a;
-    let second = b;
-    return first / second;
-};
-
-let operatorPosition = 0;
-
-function populate() {
-    a = this.textContent
-    calculation.push(a)
-    if(this.classList.contains('operator')) {
-        operator = this.textContent;
-    }
-    operatorPosition = calculation.indexOf(operator);
-
-    console.log(calculation, operator, operatorPosition)
-}
-
-function operate() {
-
-    let firstOperand
-    let secondOperand
-    let operatorSelection = operator
-
-    if (operatorSelection === '-') {
-    console.log(calculation.slice('-'))
-    }
-    else if (operatorSelection === '+'){
-
-    }
-    else if (operatorSelection === '/'){
-
-    }
-    else {
-        return mult(firstOperand)
-    }
-};
-
-console.log(operator)
+    
+    display.textContent = result
+})
+buttonGrid.appendChild(buttonEqual);    
