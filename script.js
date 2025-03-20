@@ -1,12 +1,50 @@
+
 let firstOperand = '';
 let operator = null;
 let secondOperand = '';
+let operatorTwo = null;
+let resultOutOfScope
 
 function populateOperator(e) {
     
-    if(e.target.classList.contains('operator')) {
+    if(e.target.classList.contains('operator') && operator === null && operatorTwo === null) {
         operator = e.target.textContent
         console.log(operator)
+    }
+    else if (e.target.classList.contains('operator') && operator != null && operatorTwo === null) {
+        operatorTwo = e.target.textContent
+        let result;
+
+        if (operatorTwo === '+') {
+            result = (Number(firstOperand) + Number(secondOperand))
+            console.log(result)
+            firstOperand = result
+            secondOperand = ''
+            operatorTwo = null;
+        }
+        else if (operatorTwo === '-') {
+            result = (Number(firstOperand) - Number(secondOperand))
+            console.log(result)
+            firstOperand = result
+            secondOperand = ''
+            operatorTwo = null;
+        }
+        else if (operatorTwo === '*') {
+            result = (Number(firstOperand) * Number(secondOperand))
+            console.log(result)
+            firstOperand = result
+            secondOperand = ''
+            operatorTwo = null;
+        }
+        else if (operatorTwo === '/') {
+            result = (Number(firstOperand) / Number(secondOperand))
+            console.log(result)
+            firstOperand = result
+            secondOperand = ''
+            operatorTwo = null;
+        }
+        
+        display.textContent = result.toFixed(1);
     }
 }
 
@@ -181,6 +219,7 @@ buttonEqual.addEventListener('click', () => {
         operator = ''
     }
     
-    display.textContent = result
+    display.textContent = result.toFixed(3);
 })
 buttonGrid.appendChild(buttonEqual);    
+
